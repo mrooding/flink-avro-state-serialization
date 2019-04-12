@@ -1,0 +1,1 @@
+# flink-avro-state-serialization
