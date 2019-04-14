@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "Product",
+  "name": "ProductDescription",
   "fields": [
     {
       "name": "id",
@@ -8,13 +8,7 @@
     },
     {
       "name": "description",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "stock",
-      "type": ["null", "long"],
-      "default": null
+      "type": "string"
     },
     {
       "name": "updatedAt",

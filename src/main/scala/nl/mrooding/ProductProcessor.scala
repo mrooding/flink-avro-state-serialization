@@ -7,7 +7,7 @@ import org.apache.flink.util.Collector
 
 case class ProductProcessor() extends CoProcessFunction[ProductDescription, ProductStock, Product] {
   private[this] lazy val stateDescriptor: ValueStateDescriptor[Product] =
-    new ValueStateDescriptor[Product]("product-join", Product.serializer)
+    new ValueStateDescriptor[Product]("product-join", classOf[Product])
   private[this] lazy val state: ValueState[Product] = getRuntimeContext.getState(stateDescriptor)
 
   override def processElement1(value: ProductDescription, ctx: CoProcessFunction[ProductDescription, ProductStock, Product]#Context, out: Collector[Product]): Unit = {

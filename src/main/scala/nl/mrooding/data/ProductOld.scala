@@ -1,12 +1,12 @@
-package data
+package nl.mrooding.data
 
 import java.time.Instant
 
-import state.ProductSerializer
+import nl.mrooding.state.ProductSerializer
 import org.apache.avro.generic.{GenericData, GenericRecord}
 import org.apache.flink.api.common.typeutils.TypeSerializer
 
-case class Product(
+case class ProductOld(
                        id: String,
                        description: Option[String],
                        stock: Option[Long],
@@ -14,7 +14,7 @@ case class Product(
                      ) extends AvroGenericRecordWriter {
 
   def toGenericRecord: GenericRecord = {
-    val genericRecord = new GenericData.Record(Product.getCurrentSchema)
+    val genericRecord = new GenericData.Record(ProductOld.getCurrentSchema)
     genericRecord.put("id", id)
     genericRecord.put("description", description.orNull)
     genericRecord.put("stock", stock.getOrElse(0l))
@@ -24,13 +24,13 @@ case class Product(
   }
 }
 
-object Product extends AvroSchema with AvroSerializable[Product] {
+object ProductOld extends AvroSchema with AvroSerializable[ProductOld] {
   val schemaPath: String = "/avro/product.avsc"
 
-  val serializer: TypeSerializer[Product] = new ProductSerializer(None)
+  val serializer: TypeSerializer[ProductOld] = new ProductSerializer(None)
 
-  def apply(record: GenericRecord): Product = {
-    Product(
+  def apply(record: GenericRecord): ProductOld = {
+    ProductOld(
       id = record.get("id").toString,
       description = Option(record.get("description")).map(_.toString),
       stock = Option(record.get("stock")).map(_.asInstanceOf[Long]),

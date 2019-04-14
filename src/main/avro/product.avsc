@@ -1,5 +1,6 @@
 {
   "type": "record",
+  "namespace": "nl.mrooding.data",
   "name": "Product",
   "fields": [
     {

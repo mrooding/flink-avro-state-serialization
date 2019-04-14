@@ -1,9 +1,9 @@
 package nl.mrooding
 
 import nl.mrooding.data.{ProductDescription, ProductStock}
-import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
-import org.apache.flink.api.scala._
 import nl.mrooding.source.{ProductDescriptionSource, ProductStockSource}
+import org.apache.flink.api.scala._
+import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 
 object ProductAggregator {
   private[this] val intervalMs = 1000

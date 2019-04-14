@@ -1,6 +1,7 @@
 {
   "type": "record",
-  "name": "Product",
+  "namespace": "nl.mrooding.data",
+  "name": "ProductDescription",
   "fields": [
     {
       "name": "id",
@@ -8,13 +9,7 @@
     },
     {
       "name": "description",
-      "type": ["null", "string"],
-      "default": null
-    },
-    {
-      "name": "stock",
-      "type": ["null", "long"],
-      "default": null
+      "type": "string"
     },
     {
       "name": "updatedAt",
