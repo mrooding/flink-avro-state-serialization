@@ -4,4 +4,6 @@ Sample project showcasing how to use Apache Flink custom serializers to support 
 
 ## Avrohugger generation
 
-There's a branch called `avro-generated` which contains the setup to generate Classes based on Avro schemas
+There's a branch called `avro-generated` which contains the setup to generate Classes based on Avro schemas. It generates the classes during compilation (`sbt compile`) or you can explicitly force generation using `sbt avroScalaGenerateSpecific`.
+
+Based on [sbt-avrohugger](https://github.com/julianpeeters/sbt-avrohugger)
